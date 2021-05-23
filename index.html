@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>New Restaurant Website</title>
+</head>
+<body>
+
+    <header id="home">
+        <!-- navbar -->
+        <nav id="nav" class="nav">
+            <!-- toggle button -->
+            <button class="sidebar-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <!-- nav center -->
+            <div class="nav-center">
+                <div class="logo-nav">logo</div>
+                <!-- nav header -->
+                <div class="nav-header">
+                    <div class="links-container">
+                        <ul class="links-nav">
+                            <li><a href="#home" class="scroll-link">home</a></li>
+                            <li><a href="#special" class="scroll-link">specials</a></li>
+                            <li><a href="#menu" class="scroll-link">menu</a></li>
+                            <li><a href="#about" class="scroll-link">about</a></li>
+                            <li><a href="#contact" class="scroll-link">contact</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    
+        <!-- sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3 class="logo">Logo</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <!-- links -->
+            <ul class="links">
+                <li><a href="#home" class="scroll-link">home</a></li>
+                <li><a href="#specials" class="scroll-link">specials</a></li>
+                <li><a href="#menu" class="scroll-link">menu</a></li>
+                <li><a href="#about" class="scroll-link">about</a></li>
+                <li><a href="#contact" class="scroll-link">contact</a></li>
+    
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+            </ul>
+        </aside>    
+    </header>
+
+    <section id="special" class="special">
+        <!-- <div class="color"></div>
+        <div class="color"></div> -->
+        <h2>Today's <span id="special">Special</span></h2>
+        <div class="box-special">
+            <h3 id='special-date' class="special-date">wednesday</h3>
+            <div class="container-special">
+                <div class="special-img-container">
+                    <img src="../dist/images/pizza.jpg" id="special-img" class="special-img" alt="pizza">
+                </div>
+                <h3 id='special-food' class="special-food">Pizza</h3>
+                <div class="special-description-wrapper">
+                    <p class="special-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo rerum itaque amet eaque nulla corrupti.</p>
+                </div>   
+            </div>
+        </div>
+    </section>
+
+    <section id="menu" class="menu">
+        <!-- title -->
+        <div class="title">
+            <h2>our menu</h2>
+        </div>
+        <!-- filter buttons -->
+        <div class="btn-container">
+            <!-- <button type="button" class="filter-btn" data-id="all">all</button>
+            <button type="button" class="filter-btn" data-id="meat">meat</button>
+            <button type="button" class="filter-btn" data-id="seafood">all</button>
+            <button type="button" class="filter-btn" data-id="pizza-and-pasta">pasta and pizza</button>
+            <button type="button" class="filter-btn" data-id="drinks">drinks</button> -->
+        </div>
+        <!-- menu items -->
+        <div class="section-center">
+            <!-- single item -->
+            <article class="menu-item">
+                <img src="../dist/images/pizza.jpg" alt="menu item" class="photo">
+                <div class="item-info">
+                    <div class="menu-header">
+                        <h4 class="menu-header-title">pizza</h4>
+                        <h4 class="price">$20</h4>
+                    </div>
+                    <p class="item-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, error?
+                    </p>
+                </div>
+            </article>
+            <!-- end of single item -->
+            <!-- single item -->
+            <article class="menu-item">
+                <img src="../dist/images/pizza.jpg" alt="menu item" class="photo">
+                <div class="item-info">
+                    <div class="menu-header">
+                        <h4>pizza</h4>
+                        <h4 class="price">$20</h4>
+                    </div>
+                    <p class="item-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, error?
+                    </p>
+                </div>
+            </article>
+            <!-- end of single item -->
+            <!-- single item -->
+            <article class="menu-item">
+                <img src="../dist/images/pizza.jpg" alt="menu item" class="photo">
+                <div class="item-info">
+                    <div class="menu-header">
+                        <h4>pizza</h4>
+                        <h4 class="price">$20</h4>
+                    </div>
+                    <p class="item-text">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum, error?
+                    </p>
+                </div>
+            </article>
+            <!-- end of single item -->
+            
+        </div>
+    </section>
+
+    <section class="location">
+
+        <div id="map">
+
+        </div>
+
+    </section>
+
+
+    <script src="https://kit.fontawesome.com/57aec5cdd6.js" crossorigin="anonymous"></script>
+    <script>
+        function initMap() {
+            // Map options
+            var options = {
+                    zoom:10,
+                    center:{lat: 41.8781,lng:-87.6298}
+                }
+
+            // New map
+            var map = new 
+            google.maps.Map(document.getElementById('map'),options);
+            
+
+            // listen for click on map
+            google.maps.event.addListener(map, 'click', 
+            function(event) {
+                addMarker({coords:event.latLng});
+            });
+            /*
+            // Add marker
+            var marker = new google.maps.Marker({
+                position: {lat: 41.8919,lng:-87.6051},
+                map:map,
+                icon:'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'
+            }); 
+
+            var infoWindow = new google.maps.InfoWindow({
+                content: '<h1>Navy Pier</h1>'
+            })
+
+            marker.addListener('click', function(){
+                infoWindow.open(map, marker);
+            })
+            */
+
+            // Array of markers
+            var markers = [
+                {
+                    coords: { lat: 41.8919, lng: -87.6051 },
+                    iconImage: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+                    content: '<h1>Navy Pier</h1>'
+                },
+                {
+                    coords: { lat: 41.9484, lng: -87.6553 },
+                    content: '<h1>Wrigley Field</h1>'
+                },
+                { coords: { lat: 41.8299, lng: -87.6338 } 
+                }
+
+            ];
+
+            // Loop through markers
+            for(var i = 0; i < markers.length; i++) {
+                // add marker
+                addMarker(markers[i]);
+            }
+
+            // Add Marker Function
+            function addMarker (props) {
+                var marker = new google.maps.Marker({
+                    position: props.coords,
+                    map: map,
+                    // icon: props.iconImage
+                });
+
+                // Check for custom icon
+                if(props.iconImage){
+                    // Set icon image
+                    marker.setIcon(props.iconImage);
+                }
+
+                // Check content
+                if(props.content) {
+                    var infoWindow = new google.maps.InfoWindow({
+                        content: props.content
+                    })
+
+                    marker.addListener('click', function () {
+                        infoWindow.open(map, marker);
+                    })
+                }
+            }
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBfsz6jMDBhrcSG1I7uXrQDpngAtydSW4w&callback=initMap" defer></script>
+    <script src="app.js"></script>
+    
+</body>
+</html>
+
