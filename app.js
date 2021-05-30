@@ -2,6 +2,9 @@ const toggleBtn = document.querySelector('.sidebar-toggle');
 const closeBtn = document.querySelector('.close-btn');
 const sidebar = document.querySelector('.sidebar');
 
+const navbar = document.getElementById('nav');
+const linksContainer = document.querySelector('.links-container');
+
 // ***** toggle sidebar ******
 toggleBtn.addEventListener('click', function () {
     sidebar.classList.toggle('show-sidebar');
@@ -12,9 +15,49 @@ closeBtn.addEventListener('click', function() {
     sidebar.classList.remove('show-sidebar');
 });
 
+const scrollLinks = document.querySelectorAll('.scroll-link');
+
+// ***** smooth scroll and sidebar links ******
+scrollLinks.forEach((link) => {
+    link.addEventListener('click', (e) =>{
+        // prevent default
+        e.preventDefault();
+        // navigate to specific spot
+        const id = e.currentTarget.getAttribute('href').slice(1);
+        const element = document.getElementById(id);
+
+        const navHeight = navbar.getBoundingClientRect().height;
+        const containerHeight = linksContainer.getBoundingClientRect().height;
+        const fixedNav = navbar.classList.contains('fixed-nav');
+        let position = element.offsetTop - navHeight;
+
+        console.log(navHeight)
+        // if you're all the way up at the top of the screen.
+        // if(!fixedNav) {
+        //     position = position - navHeight;
+        // }
+
+        // if you are toggling the hamburger menu
+        if (navHeight > 97) {
+            position = position + containerHeight;
+        }
+
+        window.scrollTo({
+            left: 0,
+            top: position,
+        })
+
+        linksContainer.style.height = 0;
+
+        console.log(navHeight);
+
+        sidebar.classList.remove('show-sidebar');
+    })
+})
+
 
 // ***** fixed navbar *****
-const navbar = document.getElementById('nav');
+
 
 window.addEventListener('scroll', ()=> {
     const scrollHeight = window.pageYOffset;
@@ -39,6 +82,11 @@ window.addEventListener('scroll', ()=> {
 
     
 })
+
+
+
+
+
 
 // ****Weekdays****
 
@@ -254,5 +302,13 @@ function displayMenuButtons() {
         });
     });
 }
+
+const copyDate = document.getElementById('copy-date');
+// copyright date
+const year = new Date();
+const currentYear = year.getFullYear();
+
+copyDate.innerHTML = currentYear;
+
 
 
