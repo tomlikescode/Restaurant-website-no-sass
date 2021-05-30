@@ -448,7 +448,7 @@ nav .links-nav a:hover {
 
 .menu {
   min-height: 100vh;
-  background: url("../images/menubackground.png");
+  background: url("images/menubackground.png");
   background-repeat: repeat;
   background-position: center;
   background-attachment: fixed;
